@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'nodejs';
+export const maxDuration = 10;
+
 const allowedServices = new Set(['Personal / creator privacy','Entity privacy coordination','Mail and correspondence','The Nameless Landlord','Portfolio exposure review']);
 
 export async function POST(request: Request) {
@@ -18,7 +21,7 @@ export async function POST(request: Request) {
   const token = process.env.LEAD_ROUTER_TOKEN;
   if (!endpoint || !token) return NextResponse.json({ error: 'Private intake routing is not configured yet.' }, { status: 503 });
 
-  const upstream = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ name, email, service, jurisdiction, objective, lawfulPurpose: true, source: 'alias-alibi' }), cache: 'no-store' });
+  const upstream = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }, body: JSON.stringify({ name, email, service, jurisdiction, objective, lawfulPurpose: true, source: 'alias-alibi' }), cache: 'no-store', signal: AbortSignal.timeout(8000) });
   if (!upstream.ok) return NextResponse.json({ error: 'Secure routing is temporarily unavailable.' }, { status: 502 });
   return NextResponse.json({ ok: true }, { status: 202 });
 }
