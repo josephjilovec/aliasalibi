@@ -1,0 +1,18 @@
+import Link from 'next/link';
+import { guardrails, services } from '@/lib/brand';
+
+export default function Home() {
+  return <main>
+    <section className="hero"><div className="grain"/><div className="hero-copy"><p className="kicker">PRIVATE CONCIERGE / ENTITY & PROPERTY PRIVACY</p><h1>Privacy by architecture,<br/><em>not improvisation.</em></h1><p className="lede">Alias & Alibi coordinates lawful identity-exposure reduction across entities, correspondence, and real estate—then routes jurisdiction-specific legal work to vetted professionals.</p><div className="actions"><Link className="button primary" href="/intake">Request a private assessment</Link><a className="text-link" href="#process">See the operating model →</a></div></div><div className="seal"><span>A&A</span><small>PRIVATE OFFICE<br/>EST. 2026</small></div></section>
+
+    <section id="services" className="section"><div className="section-head"><p>01 / SERVICE LINES</p><h2>One privacy architecture.<br/>Multiple exposure surfaces.</h2></div><div className="service-grid">{services.map((service) => <article key={service.name} className={service.flagship ? 'flagship' : ''}><span>{service.code}</span><h3>{service.name}</h3><p>{service.description}</p><ul>{service.includes.map((item)=><li key={item}>{item}</li>)}</ul>{service.flagship && <b>Flagship real-estate protection line</b>}</article>)}</div></section>
+
+    <section id="process" className="section dark"><div className="section-head"><p>02 / OPERATING MODEL</p><h2>A private office with software discipline.</h2></div><div className="process-grid">{[['01','Map','Identify what is publicly exposed, where it appears, and which obligations cannot be altered.'],['02','Design','Build a counsel-ready privacy plan with jurisdiction, title, mail, and entity dependencies clearly separated.'],['03','Route','Send legal, registered-agent, title, trust, and filing tasks to authorized partners with scoped instructions.'],['04','Verify','Record completion evidence, renewal dates, exceptions, and changes that require professional review.']].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></section>
+
+    <section className="section"><div className="section-head"><p>03 / PRIVATE PORTAL</p><h2>Track exposure, obligations, and handoffs without turning privacy into a black box.</h2></div><div className="portal-frame"><div className="portal-rail"><b>PRIVATE FILE / 0281</b><span className="active">Exposure map</span><span>Entity coordination</span><span>Property records</span><span>Correspondence</span><span>Partner handoffs</span></div><div className="portal-main"><div className="risk-line"><span>Public exposure index</span><strong>Mapped</strong></div><div className="record-grid"><article><small>IDENTITY</small><b>4 surfaces</b><p>Secretary-of-state, county recorder, business mail, public contact points.</p></article><article><small>PROPERTY</small><b>2 counties</b><p>Ownership chain and public-name visibility mapped for counsel review.</p></article><article><small>NEXT REVIEW</small><b>21 days</b><p>Registered-agent renewal and title-partner follow-up.</p></article></div></div></div></section>
+
+    <section className="section guardrail"><div><p className="kicker">04 / NON-NEGOTIABLE</p><h2>Privacy is not concealment from lawful obligations.</h2></div><ul>{guardrails.map((item)=><li key={item}>{item}</li>)}</ul></section>
+
+    <section className="cta"><p>Private intake is deliberately narrow.</p><h2>Start with exposure, objectives, and jurisdiction—not confidential documents.</h2><Link className="button primary" href="/intake">Begin private intake</Link></section>
+  </main>;
+}
