@@ -2,7 +2,7 @@
 
 A privacy-concierge concept for lawful reduction of unnecessary public exposure across business contact information, correspondence and professionally reviewed entity/property questions.
 
-Public source repository: https://github.com/josephjilovec/aliasalibi
+Public source repository: YOUR_REPOSITORY_URL
 
 ## Public experience
 

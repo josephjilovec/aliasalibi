@@ -4,6 +4,7 @@ import './globals.css';
 import './performance.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aliasalibi.summithillholdings.com"),
   title: { default: 'Alias & Alibi', template: '%s | Alias & Alibi' },
   description: 'Private identity, entity, correspondence, and real-estate exposure reduction coordinated through a premium concierge service and private digital portal.'
 };
@@ -38,6 +39,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     `}</style>
     <header className="site-header"><Link className="wordmark" href="/">Alias <i>&</i> Alibi</Link><nav><Link href="/#services">Services</Link><Link href="/#process">Process</Link><Link href="/intake">Private intake</Link></nav></header>
     {children}
-    <footer><div><strong>Alias & Alibi</strong><span>Private architecture for public exposure.</span></div><p>Concierge coordination only. Legal, tax, title, fiduciary, and filing work is performed or approved by appropriately licensed or authorized professionals where required.</p></footer>
+    <footer><div><strong>Alias & Alibi</strong><span>Private architecture for public exposure.</span></div><p>Concierge coordination only. Legal, tax, title, fiduciary, and filing work is performed or approved by appropriately licensed or authorized professionals where required.</p><p style={{ gridColumn: "1 / -1", margin: 0, padding: "16px 24px", fontSize: "12px", lineHeight: 1.6 }}><a href="https://summithillholdings.com/" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Summit Hill Holdings</a></p></footer>
   </body></html>;
 }
